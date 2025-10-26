@@ -3,8 +3,17 @@ class Interactive3D {
     constructor() {
         this.init();
     }
+    
+    isMobile() {
+        return window.innerWidth <= 768;
+    }
 
     init() {
+        // Disable heavy 3D effects on mobile for performance
+        if (this.isMobile()) {
+            return;
+        }
+        
         this.addMouseTiltEffect();
         this.addScrollParallax();
         this.addGlowEffects();
@@ -99,9 +108,19 @@ class NavbarScroll {
         this.scrollingDown = false;
         this.init();
     }
+    
+    isMobile() {
+        return window.innerWidth <= 768;
+    }
 
     init() {
         if (!this.navbar) return;
+        
+        // Simplify on mobile
+        if (this.isMobile()) {
+            window.addEventListener('scroll', () => this.updateActiveNavLink());
+            return;
+        }
 
         window.addEventListener('scroll', () => {
             this.handleScroll();
@@ -232,8 +251,17 @@ class ParallaxEffect {
     constructor() {
         this.init();
     }
+    
+    isMobile() {
+        return window.innerWidth <= 768;
+    }
 
     init() {
+        // Disable parallax on mobile for better performance
+        if (this.isMobile()) {
+            return;
+        }
+        
         const floatingCards = document.querySelectorAll('.floating-card');
         
         window.addEventListener('scroll', () => {

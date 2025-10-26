@@ -5026,6 +5026,8 @@ body::before {
     /* Consistent Section Padding */
     .hero {
         padding: 4rem 0 1rem 0;
+        min-height: auto;
+        overflow: hidden;
     }
     
     .about {
@@ -5064,29 +5066,66 @@ body::before {
         gap: 2rem;
         padding-top: 120px;
         padding-bottom: 80px;
-        min-height: 100vh;
+        min-height: auto;
+        padding-bottom: 40px;
     }
     
     .hero-content {
         padding: 1rem 0;
     }
     
+    /* Hide or simplify hero-visual on mobile to prevent performance issues */
+    .hero-visual {
+        display: none;
+    }
+    
+    /* Optimize floating cards on mobile - hide them */
+    .floating-elements {
+        display: none;
+    }
+    
+    /* Reduce animation complexity on mobile */
+    .hero-background-effects {
+        display: none;
+    }
+    
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+    
+    .hero-stats .stat-item {
+        padding: 1rem 1.5rem;
+        flex: 0 0 calc(50% - 0.75rem);
+        min-width: 120px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 1.5rem;
         line-height: 1.1;
     }
     
     .hero-description {
-        font-size: 1.2rem;
-        padding: 0 0.5rem;
-        margin-bottom: 2.5rem;
+        font-size: 1rem;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
         line-height: 1.6;
     }
     
     .hero-buttons {
         gap: 1rem;
-        padding: 0 0.5rem;
+        padding: 0 1rem;
         justify-content: center;
         flex-direction: column;
         align-items: center;
@@ -5119,13 +5158,59 @@ body::before {
         grid-template-columns: 1fr;
     }
     
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+    /* Portfolio optimizations on mobile */
+    .portfolio-background-effects {
+        display: none;
     }
     
-    .btn {
-        width: 200px;
+    /* Reduce portfolio animations on mobile */
+    .portfolio-ring, .portfolio-shape, .portfolio-particle {
+        display: none;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Services grid optimization */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Testimonials grid optimization */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Disable heavy background animations on mobile for performance */
+    .hero::before,
+    .hero::after {
+        display: none !important;
+    }
+    
+    .universe-bg,
+    .cosmic-rings,
+    .ring,
+    .floating-shapes,
+    .shape,
+    .hero-particles,
+    .particle,
+    .hero-grid,
+    .grid-line {
+        display: none !important;
+    }
+    
+    /* Hide scroll indicator on mobile */
+    .scroll-indicator {
+        display: none;
+    }
+    
+    /* Reduce parallax effects that can cause hanging */
+    body {
+        overflow-x: hidden;
     }
 }
 
@@ -5134,22 +5219,45 @@ body::before {
         padding: 0 15px;
         padding-top: 100px;
         padding-bottom: 60px;
+        min-height: auto;
     }
     
     .hero-content {
         padding: 0.5rem 0;
     }
     
+    /* Optimize stats for very small screens */
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .hero-stats .stat-item {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
         margin-bottom: 1rem;
         line-height: 1.2;
     }
     
     .hero-description {
-        font-size: 1.1rem;
-        padding: 0;
-        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
         line-height: 1.5;
     }
     
@@ -5328,9 +5436,10 @@ body::before {
     .landing-page-project .floating-code {
         display: none;
     }
+}
     
-    /* Small Mobile Devices */
-    @media (max-width: 480px) {
+/* Small Mobile Devices (max-width: 480px) - Moved outside */
+@media (max-width: 480px) {
         /* Hide About Section Middle Line on Small Mobile */
         .about-content::before {
             display: none;

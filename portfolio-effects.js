@@ -3,8 +3,17 @@ class PortfolioBackgroundEffects {
     constructor() {
         this.init();
     }
+    
+    isMobile() {
+        return window.innerWidth <= 768;
+    }
 
     init() {
+        // Disable heavy portfolio effects on mobile for performance
+        if (this.isMobile()) {
+            return;
+        }
+        
         this.addPortfolioBackgroundInteractions();
         this.addPortfolioMouseTracking();
         this.addPortfolioScrollEffects();

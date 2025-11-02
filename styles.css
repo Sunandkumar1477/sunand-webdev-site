@@ -4997,229 +4997,28 @@ body::before {
     }
 }
 
+/* ============================================
+   TABLET & MOBILE RESPONSIVE STYLES (≤768px)
+   ============================================ */
 @media (max-width: 768px) {
-    /* Disable smooth scroll for faster loading on mobile */
+    /* Performance Optimizations */
     html {
         scroll-behavior: auto !important;
     }
     
-    /* Override CSS transition variables for mobile - disable them */
     :root {
         --transition: none !important;
         --transition-slow: none !important;
         --transition-bounce: none !important;
     }
     
-    /* Disable heavy background animations on mobile for performance */
+    /* Disable all heavy animations for performance */
     body::before,
-    body::after {
-        animation: none !important;
-        display: none !important;
-    }
-    
-    .universe-bg {
-        animation: none !important;
-    }
-    
-    /* Reduce backdrop-filter on mobile (performance heavy) */
-    .navbar {
-        backdrop-filter: blur(5px);
-    }
-    
-    .hamburger {
-        display: flex;
-    }
-    
-    /* Hide About Section Middle Line on Mobile */
-    .about-content::before {
-        display: none;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 80px;
-        flex-direction: column;
-        background: rgba(15, 15, 35, 0.98);
-        backdrop-filter: blur(5px);
-        width: 100%;
-        text-align: center;
-        transition: left 0.25s ease;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        padding: 3rem 0;
-        border-top: 2px solid rgba(99, 102, 241, 0.3);
-        z-index: 9998;
-    }
-    
-    /* Consistent Section Padding */
-    .hero {
-        padding: 4rem 0 1rem 0;
-        min-height: auto;
-        overflow: hidden;
-    }
-    
-    .about {
-        padding: 0.5rem 0 120px 0;
-    }
-    
-    .portfolio {
-        padding: 0.5rem 0 120px 0;
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .nav-link {
-        color: var(--text-primary);
-        font-weight: 600;
-        transition: none;
-        position: relative;
-        padding: 15px 25px;
-        border-radius: 25px;
-        margin: 5px 20px;
-        font-size: 1.1rem;
-        text-shadow: none;
-    }
-    
-    .nav-link:active {
-        background: rgba(99, 102, 241, 0.2);
-        opacity: 0.8;
-    }
-    
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-        padding-top: 120px;
-        padding-bottom: 80px;
-        min-height: auto;
-        padding-bottom: 40px;
-    }
-    
-    .hero-content {
-        padding: 1rem 0;
-    }
-    
-    /* Hide or simplify hero-visual on mobile to prevent performance issues */
-    .hero-visual {
-        display: none;
-    }
-    
-    /* Optimize floating cards on mobile - hide them */
-    .floating-elements {
-        display: none;
-    }
-    
-    /* Reduce animation complexity on mobile */
-    .hero-background-effects {
-        display: none;
-    }
-    
-    .hero-stats {
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: center;
-        margin: 2rem 0;
-    }
-    
-    .hero-stats .stat-item {
-        padding: 1rem 1.5rem;
-        flex: 0 0 calc(50% - 0.75rem);
-        min-width: 120px;
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.85rem;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-        padding: 0 1rem;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-    
-    .hero-buttons {
-        gap: 1rem;
-        padding: 0 1rem;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 280px;
-        padding: 16px 32px;
-        font-size: 1rem;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .skills {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Portfolio optimizations on mobile */
-    .portfolio-background-effects {
-        display: none;
-    }
-    
-    /* Reduce portfolio animations on mobile */
-    .portfolio-ring, .portfolio-shape, .portfolio-particle {
-        display: none;
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    /* Services grid optimization */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    /* Testimonials grid optimization */
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    /* Disable heavy background animations on mobile for performance */
-    .hero::before,
-    .hero::after {
-        display: none !important;
-        animation: none !important;
-    }
-    
+    body::after,
     .universe-bg,
+    .hero::before,
+    .hero::after,
+    .hero-background-effects,
     .cosmic-rings,
     .ring,
     .floating-shapes,
@@ -5227,146 +5026,62 @@ body::before {
     .hero-particles,
     .particle,
     .hero-grid,
-    .grid-line {
-        display: none !important;
-        animation: none !important;
-    }
-    
-    /* Disable heavy continuous animations on mobile */
-    body::before,
-    body::after,
-    .universe-bg,
-    .hero::before,
-    .hero::after,
-    .ring,
-    .shape,
-    .particle,
-    .portfolio-ring,
-    .portfolio-shape,
-    .portfolio-particle,
-    .cosmic-rings,
-    .floating-shapes {
-        animation: none !important;
-        animation-duration: 0s !important;
-    }
-    
-    /* Minimize transitions for faster loading - only essential interactions */
-    .hamburger .bar {
-        transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    
-    .nav-menu {
-        transition: left 0.25s ease;
-    }
-    
-    /* Disable all other transitions on mobile for faster loading */
-    .nav-link,
-    .btn,
-    .portfolio-item,
-    .service-card,
-    .testimonial-card,
-    .skill-item {
-        transition: none !important;
-    }
-    
-    /* Hide scroll indicator on mobile */
-    .scroll-indicator {
-        display: none;
-    }
-    
-    /* Reduce parallax effects that can cause hanging */
-    body {
-        overflow-x: hidden;
-    }
-    
-    /* Disable transform animations on mobile */
-    .portfolio-item,
-    .service-card,
-    .testimonial-card {
-        transform: none !important;
-    }
-    
-    /* Disable hover effects completely on mobile for faster loading */
-    .portfolio-item:hover,
-    .service-card:hover,
-    .testimonial-card:hover,
-    .nav-link:hover,
-    .btn:hover {
-        transform: none !important;
-        box-shadow: none !important;
-    }
-    
-    /* Disable filter effects on mobile (performance heavy) */
-    .navbar,
-    .nav-link,
-    .btn {
-        filter: none !important;
-    }
-    
-    /* Disable code animations on mobile */
-    .code-animation,
-    .floating-code,
-    .code-snippet {
-        display: none !important;
-    }
-    
-    /* Simplify portfolio overlays */
-    .portfolio-overlay {
-        background: rgba(11, 20, 38, 0.95) !important;
-        backdrop-filter: none !important;
-    }
-    
-    /* Disable ALL hover effects on mobile for faster loading */
-    .portfolio-item:hover,
-    .service-card:hover,
-    .testimonial-card:hover,
-    .skill-item:hover,
-    .nav-link:hover,
-    .btn:hover {
-        transform: none !important;
-        box-shadow: none !important;
-        filter: none !important;
-    }
-    
-    /* Minimal feedback on touch only */
-    .portfolio-item:active,
-    .service-card:active,
-    .btn:active,
-    .nav-link:active {
-        opacity: 0.85;
-    }
-    
-    /* Remove all gradients that might cause performance issues */
-    .hero-background-effects,
+    .grid-line,
     .portfolio-background-effects,
     .about::before,
     .about::after {
         display: none !important;
+        animation: none !important;
     }
     
-    /* Disable elements with white radial gradients that create white blocks */
-    .floating-shapes .shape,
-    .hero-particles .particle,
-    .floating-code,
-    .code-snippet {
-        display: none !important;
+    /* Navigation - Mobile Menu */
+    .navbar {
+        backdrop-filter: blur(5px);
+        padding: 0 15px;
     }
     
-    /* Fix any white radial gradients */
-    .shape,
-    .particle,
-    .floating-elements::before,
-    .floating-elements::after {
-        background: none !important;
-        background-image: none !important;
+    .hamburger {
+        display: flex;
     }
     
-    /* Simplify navbar */
-    .navbar::before {
-        display: none !important;
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background: rgba(11, 20, 38, 0.98);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        padding: 2rem 0;
+        border-top: 2px solid rgba(255, 215, 0, 0.3);
+        z-index: 9998;
+        gap: 0;
     }
     
-    /* Disable text gradients on mobile - Fix Sunand logo */
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 18px 25px;
+        margin: 5px 20px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: background 0.2s ease;
+    }
+    
+    .nav-link:active {
+        background: rgba(255, 215, 0, 0.1);
+        opacity: 0.9;
+    }
+    
+    /* Logo - Remove Gradient */
     .nav-logo,
     .nav-logo h2 {
         background: transparent !important;
@@ -5379,185 +5094,51 @@ body::before {
         animation: none !important;
         opacity: 1 !important;
         visibility: visible !important;
+        font-size: 1.8rem;
     }
     
     .nav-logo h2::after {
         display: none !important;
     }
     
-    /* Disable stat progress animations */
-    .stat-progress {
-        display: none !important;
+    /* Hero Section - Mobile Layout */
+    .hero {
+        padding: 5rem 0 2rem 0;
+        min-height: auto;
+        overflow: hidden;
     }
     
-    /* Fix white blocks covering text - disable button pseudo-elements */
-    .btn::before,
-    .btn::after,
-    .btn-primary::before,
-    .btn-primary::after,
-    .btn-secondary::before,
-    .btn-secondary::after,
-    .btn-glow,
-    .card-glow,
-    .card-trail {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 100px 20px 60px;
+        min-height: auto;
     }
     
-    /* Ensure button text is on top and visible */
-    .btn,
-    .btn-text,
-    .btn-icon {
-        position: relative !important;
-        z-index: 10 !important;
+    .hero-content {
+        padding: 1rem 0;
+        width: 100%;
     }
     
-    /* Fix portfolio item backgrounds that might show as white blocks */
-    .portfolio-item,
-    .portfolio-image,
-    .project-preview,
-    .project-content {
-        background: transparent !important;
-        position: relative !important;
+    .hero-visual,
+    .floating-elements,
+    .hero-background-effects {
+        display: none;
     }
     
-    /* Fix white backgrounds in project previews that show as white blocks */
-    .project-preview,
-    .skiller7-project .project-preview,
-    .ecommerce-project .project-preview,
-    .portfolio-website-project .project-preview,
-    .landing-page-project .project-preview {
-        background: rgba(11, 20, 38, 0.5) !important;
+    .hero-title {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
     }
     
-    /* Remove any white backgrounds from project elements */
-    .browser-bar {
-        background: rgba(0, 0, 0, 0.4) !important;
-    }
-    
-    .project-content,
-    .project-logo {
-        background: transparent !important;
-    }
-    
-    /* Fix white browser dots that create white blocks */
-    .browser-dots span {
-        background: rgba(255, 255, 255, 0.3) !important;
-    }
-    
-    .browser-dots span:nth-child(1) { 
-        background: #ff5f56 !important;
-    }
-    .browser-dots span:nth-child(2) { 
-        background: #ffbd2e !important;
-    }
-    .browser-dots span:nth-child(3) { 
-        background: #27ca3f !important;
-    }
-    
-    .portfolio-image::before,
-    .portfolio-image::after,
-    .project-preview::before,
-    .project-preview::after {
-        display: none !important;
-    }
-    
-    /* Ensure project preview content is visible */
-    .project-content,
-    .project-logo,
-    .project-logo h4,
-    .browser-title,
-    .project-stats {
-        color: var(--text-primary) !important;
+    .title-line {
         opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    /* Fix browser dots white backgrounds - make them darker */
-    .browser-dots span {
-        background: rgba(255, 255, 255, 0.3) !important;
-    }
-    
-    .browser-dots span:nth-child(1) { 
-        background: #ff5f56 !important;
-    }
-    .browser-dots span:nth-child(2) { 
-        background: #ffbd2e !important;
-    }
-    .browser-dots span:nth-child(3) { 
-        background: #27ca3f !important;
-    }
-    
-    /* Remove white/light backgrounds that create white blocks - be specific */
-    .project-preview::before,
-    .project-content::before,
-    .btn::before,
-    .service-card::before {
-        background: none !important;
-        background-image: none !important;
-    }
-    
-    /* Keep only essential backgrounds, remove white overlays */
-    .btn-primary {
-        background: var(--gradient-galaxy) !important;
-    }
-    
-    .btn-secondary {
-        background: transparent !important;
-    }
-    
-    /* Fix any white text on white background issues */
-    .project-content h4,
-    .project-logo h4 {
-        background: var(--text-primary) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--text-primary) !important;
-        color: var(--text-primary) !important;
-    }
-    
-    /* Ensure text elements are above any potential white overlays */
-    .title-line,
-    .hero-description,
-    .section-title,
-    .section-subtitle,
-    .about-text,
-    .about-text h3,
-    .about-text p,
-    .service-card,
-    .service-card h3,
-    .service-card p,
-    .testimonial-card p,
-    .contact-info,
-    .contact-method,
-    .portfolio-overlay,
-    .timeline-content {
-        position: relative !important;
-        z-index: 5 !important;
-    }
-    
-    /* Fix text visibility issues - elements that start with opacity 0 need to be visible */
-    .title-line,
-    .hero-title,
-    .hero-description,
-    .hero-content,
-    .section-title,
-    .section-subtitle,
-    .about-text,
-    .about-text h3,
-    .about-text p,
-    .service-card h3,
-    .service-card p,
-    .testimonial-card p,
-    .contact-info h3,
-    .contact-info p {
-        opacity: 1 !important;
-        visibility: visible !important;
         transform: none !important;
+        display: block;
     }
     
-    /* Fix "Grow Your Brand with" - remove gradient background-clip */
     .highlight {
         background: var(--text-primary) !important;
         background-image: none !important;
@@ -5575,8 +5156,82 @@ body::before {
         display: none !important;
     }
     
-    /* Fix section titles (About Me, My Work, Services, etc.) - remove gradient */
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 2.5rem 0;
+    }
+    
+    .hero-stats .stat-item {
+        padding: 1.2rem 1.8rem;
+        flex: 0 0 calc(50% - 0.75rem);
+        min-width: 140px;
+        max-width: 200px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        opacity: 1 !important;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 1 !important;
+    }
+    
+    .stat-icon {
+        opacity: 1 !important;
+    }
+    
+    .stat-progress {
+        display: none !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 36px;
+        font-size: 1.05rem;
+        border-radius: 50px;
+    }
+    
+    .btn::before,
+    .btn::after,
+    .btn-primary::before,
+    .btn-primary::after,
+    .btn-secondary::before,
+    .btn-secondary::after,
+    .btn-glow {
+        display: none !important;
+    }
+    
+    .btn-text,
+    .btn-icon {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Section Titles - Remove Gradients */
     .section-title {
+        font-size: 2.5rem;
         background: var(--text-primary) !important;
         background-image: none !important;
         background-clip: unset !important;
@@ -5587,143 +5242,67 @@ body::before {
         animation: none !important;
         -webkit-text-stroke: none !important;
         opacity: 1 !important;
+        margin-bottom: 1rem;
     }
     
     .section-title::after {
         display: none !important;
     }
     
-    /* Ensure portfolio overlay text is visible on mobile (show always, not just on hover) */
-    .portfolio-overlay {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        background: rgba(11, 20, 38, 0.98) !important;
-    }
-    
-    .portfolio-overlay h3 {
-        background: var(--text-primary) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--text-primary) !important;
-        color: var(--text-primary) !important;
-        text-shadow: none !important;
-        animation: none !important;
-    }
-    
-    .portfolio-overlay p {
-        color: var(--text-primary) !important;
+    .section-subtitle {
+        font-size: 1.1rem;
         opacity: 1 !important;
     }
     
-    /* Fix text with gradient backgrounds - show as solid color on mobile */
-    .highlight,
-    .nav-logo h2,
-    .section-title,
-    .portfolio-overlay h3 {
-        background: var(--text-primary) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--text-primary) !important;
-        color: var(--text-primary) !important;
+    /* About Section */
+    .about {
+        padding: 3rem 0 100px 0;
     }
     
-    /* Ensure all text elements have proper color */
-    h1, h2, h3, h4, h5, h6,
-    p, span, a, li,
-    .btn, .nav-link,
-    .btn-text,
-    .service-features li,
-    .contact-method h4,
-    .contact-method p,
-    .footer-logo h3,
-    .footer-logo p,
-    .footer-links a,
-    .footer-social a {
-        color: var(--text-primary) !important;
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-content::before {
+        display: none;
+    }
+    
+    .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
         opacity: 1 !important;
     }
     
-    /* Ensure button text is visible */
-    .btn,
-    .btn-text,
-    .btn-icon {
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.7;
         opacity: 1 !important;
-        visibility: visible !important;
+        margin-bottom: 1rem;
     }
     
-    /* Ensure lists and list items are visible */
-    ul, ol, li {
-        opacity: 1 !important;
-        visibility: visible !important;
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
     
-    .service-features li,
-    .contact-methods .contact-method {
-        opacity: 1 !important;
-        color: var(--text-primary) !important;
+    .skill-item {
+        padding: 1.5rem;
+        text-align: center;
     }
     
-    /* Ensure contact form text is visible */
-    .contact-form,
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form label,
-    .form-group input,
-    .form-group textarea {
-        color: var(--text-primary) !important;
-        opacity: 1 !important;
+    .code-animation {
+        display: none !important;
     }
     
-    /* Ensure footer text is visible */
-    .footer,
-    .footer-bottom p,
-    .footer-logo h3,
-    .footer-logo p {
-        color: var(--text-primary) !important;
-        opacity: 1 !important;
-    }
-    
-    /* Make sure stat numbers and labels are visible */
-    .stat-number,
-    .stat-label,
-    .stat-icon {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    /* Ensure text containers don't clip content on mobile */
-    .hero-content,
-    .about-text,
-    .about-content,
-    .container,
-    .section-header,
-    .service-card,
-    .testimonial-card,
-    .contact-info,
-    .contact-form,
-    .portfolio-item {
-        overflow: visible !important;
-    }
-    
-    /* Ensure all text is readable - no text clipping */
-    p, h1, h2, h3, h4, h5, h6,
-    .hero-description,
-    .about-text p,
-    .section-subtitle,
-    .service-card p,
-    .testimonial-card p {
-        overflow: visible !important;
-        white-space: normal !important;
-        word-wrap: break-word !important;
-        text-overflow: clip !important;
-    }
-    
-    /* Fix timeline content visibility - Fix timeline years and descriptions */
+    /* Timeline */
     .timeline-item {
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
+        margin-bottom: 2.5rem;
+        padding-left: 2.5rem;
     }
     
     .timeline-content {
@@ -5738,31 +5317,649 @@ body::before {
         -webkit-background-clip: unset !important;
         -webkit-text-fill-color: var(--text-primary) !important;
         color: var(--text-primary) !important;
+        font-size: 1.5rem;
         opacity: 1 !important;
         visibility: visible !important;
+        margin-bottom: 0.5rem;
     }
     
     .timeline-content p {
+        color: var(--text-primary) !important;
+        font-size: 1rem;
         opacity: 1 !important;
         visibility: visible !important;
+        line-height: 1.6;
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+        padding: 3rem 0 100px 0;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .portfolio-item {
+        transform: none !important;
+    }
+    
+    .portfolio-overlay {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        background: rgba(11, 20, 38, 0.98) !important;
+        backdrop-filter: none !important;
+        padding: 2rem;
+    }
+    
+    .portfolio-overlay h3 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
         color: var(--text-primary) !important;
+        font-size: 1.5rem;
+        opacity: 1 !important;
+    }
+    
+    .portfolio-overlay p {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        font-size: 1rem;
+    }
+    
+    .project-preview {
+        background: rgba(11, 20, 38, 0.6) !important;
+    }
+    
+    .project-content h4,
+    .project-logo h4 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    .browser-bar {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    .browser-dots span:nth-child(1) { background: #ff5f56 !important; }
+    .browser-dots span:nth-child(2) { background: #ffbd2e !important; }
+    .browser-dots span:nth-child(3) { background: #27ca3f !important; }
+    
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .service-card {
+        padding: 2rem;
+        transform: none !important;
+    }
+    
+    .service-card h3 {
+        font-size: 1.5rem;
+        opacity: 1 !important;
+    }
+    
+    .service-card p {
+        font-size: 1rem;
+        opacity: 1 !important;
+        line-height: 1.7;
+    }
+    
+    .service-features li {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Testimonials Section */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .testimonial-card {
+        padding: 2rem;
+        transform: none !important;
+    }
+    
+    .testimonial-card p {
+        font-size: 1rem;
+        opacity: 1 !important;
+        line-height: 1.7;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 2rem;
+        opacity: 1 !important;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-info p {
+        font-size: 1.1rem;
+        opacity: 1 !important;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-method {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-method h4 {
+        font-size: 1.2rem;
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .contact-method p {
+        font-size: 1rem;
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 3rem 0;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.8rem;
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .footer-logo p {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-links a {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .footer-bottom p {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Disable Hover Effects */
+    .portfolio-item:hover,
+    .service-card:hover,
+    .testimonial-card:hover,
+    .skill-item:hover,
+    .nav-link:hover,
+    .btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        filter: none !important;
+    }
+    
+    /* Touch Feedback */
+    .portfolio-item:active,
+    .service-card:active,
+    .btn:active,
+    .nav-link:active {
+        opacity: 0.85;
+    }
+    
+    /* Container Adjustments */
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Text Visibility - Ensure All Text is Visible */
+    h1, h2, h3, h4, h5, h6,
+    p, span, a, li,
+    .btn-text,
+    ul li,
+    ol li {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Text Overflow */
+    p, h1, h2, h3, h4, h5, h6 {
+        overflow: visible !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        text-overflow: clip !important;
+    }
+    
+    /* Z-index for Content */
+    .hero-content,
+    .about-text,
+    .section-header,
+    .service-card *,
+    .testimonial-card *,
+    .portfolio-overlay *,
+    .contact-info * {
+        position: relative;
+        z-index: 5;
+    }
+    
+    /* Disable Transitions Except Essential */
+    .hamburger .bar {
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    
+    .nav-menu {
+        transition: left 0.3s ease;
+    }
+    
+    .nav-link,
+    .btn,
+    .portfolio-item,
+    .service-card,
+    .testimonial-card,
+    .skill-item {
+        transition: none !important;
     }
 }
 
+/* ============================================
+   SMALL MOBILE RESPONSIVE STYLES (≤480px)
+   ============================================ */
 @media (max-width: 480px) {
-    /* AGGRESSIVE MOBILE OPTIMIZATIONS - PREVENT HANGING & FASTER LOADING */
-    
-    /* Disable smooth scroll completely for instant navigation */
+    /* Performance - Disable Everything Heavy */
     html {
         scroll-behavior: auto !important;
     }
     
-    /* Override all CSS transition variables */
     :root {
         --transition: none !important;
         --transition-slow: none !important;
         --transition-bounce: none !important;
     }
+    
+    /* Completely disable all animations and transitions */
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+        animation-fill-mode: none !important;
+        transition: none !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    
+    /* Only essential transitions */
+    .hamburger .bar {
+        transition: transform 0.15s ease, opacity 0.15s ease !important;
+    }
+    
+    .nav-menu {
+        transition: left 0.15s ease !important;
+    }
+    
+    /* Disable all visual effects */
+    * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        filter: none !important;
+        transform: none !important;
+        will-change: auto !important;
+    }
+    
+    /* Minimal shadows for essential elements */
+    .navbar,
+    .nav-menu,
+    .btn {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Typography - Smaller Sizes */
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    /* Navigation */
+    .nav-logo h2 {
+        font-size: 1.6rem;
+        background: transparent !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    .nav-link {
+        padding: 16px 20px;
+        font-size: 1rem;
+    }
+    
+    /* Hero Section */
+    .hero-container {
+        padding: 90px 15px 50px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-stats .stat-item {
+        width: 100%;
+        max-width: 250px;
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.6rem;
+        opacity: 1 !important;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+        opacity: 1 !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        padding: 16px 28px;
+        font-size: 0.95rem;
+    }
+    
+    /* Sections */
+    .about {
+        padding: 2rem 0 80px 0;
+    }
+    
+    .portfolio {
+        padding: 2rem 0 80px 0;
+    }
+    
+    .skills {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .timeline-item {
+        opacity: 1 !important;
+        transform: none !important;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-content h4 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        font-size: 1.3rem;
+        opacity: 1 !important;
+    }
+    
+    .timeline-content p {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        font-size: 0.95rem;
+    }
+    
+    /* Text Visibility */
+    .highlight {
+        background: var(--text-primary) !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* All Text Elements */
+    h1, h2, h3, h4, h5, h6, p, span, a, li,
+    .btn-text, .service-features li, .contact-method h4,
+    .contact-method p, .footer-logo h3, .footer-logo p,
+    .footer-links a {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Active States */
+    .btn:active,
+    .nav-link:active,
+    .portfolio-item:active,
+    .service-card:active {
+        opacity: 0.8;
+        transform: none !important;
+    }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE RESPONSIVE STYLES (≤360px)
+   ============================================ */
+@media (max-width: 360px) {
+    /* Ultra Aggressive Optimizations */
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        will-change: auto !important;
+    }
+    
+    /* Essential transitions only */
+    .hamburger .bar {
+        transition: transform 0.15s ease, opacity 0.15s ease !important;
+    }
+    
+    .nav-menu {
+        transition: left 0.15s ease !important;
+    }
+    
+    /* Typography - Smallest Sizes */
+    .hero-title {
+        font-size: 1.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        background: var(--text-primary) !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.5rem;
+        background: transparent !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Layout */
+    .hero {
+        padding: 3.5rem 0 1rem 0;
+    }
+    
+    .about {
+        padding: 1.5rem 0 70px 0;
+    }
+    
+    .portfolio {
+        padding: 1.5rem 0 70px 0;
+    }
+    
+    .hero-container {
+        padding: 85px 12px 40px;
+    }
+    
+    .hero-stats .stat-item {
+        padding: 0.9rem;
+        max-width: 100%;
+    }
+    
+    .stat-number {
+        font-size: 1.4rem;
+        opacity: 1 !important;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        opacity: 1 !important;
+    }
+    
+    .btn {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+    
+    /* Timeline */
+    .timeline-item {
+        opacity: 1 !important;
+        transform: none !important;
+        padding-left: 2rem;
+    }
+    
+    .timeline-content h4 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        font-size: 1.2rem;
+        opacity: 1 !important;
+    }
+    
+    .timeline-content p {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        font-size: 0.9rem;
+    }
+    
+    /* Text Visibility - All Elements */
+    .title-line,
+    .hero-title,
+    .hero-description,
+    .hero-content,
+    .section-title,
+    .section-subtitle,
+    .about-text,
+    .about-text h3,
+    .about-text p,
+    .service-card h3,
+    .service-card p,
+    .testimonial-card p,
+    .contact-info h3,
+    .contact-info p,
+    .portfolio-overlay,
+    .portfolio-overlay h3,
+    .portfolio-overlay p,
+    .skill-item span,
+    .btn-text,
+    .footer-content p,
+    .footer-links a {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .highlight {
+        background: var(--text-primary) !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    .about-content::before {
+        display: none;
+    }
+    
+    .navbar {
+        background: rgba(11, 20, 38, 0.98) !important;
+        backdrop-filter: none !important;
+    }
+    
+    .btn:active {
+        opacity: 0.8;
+    }
+}
     
     /* Disable ALL animations completely for faster loading */
     *,
@@ -6462,7 +6659,7 @@ body::before {
         padding: 0.6rem;
         font-size: 1.1rem;
     }
-}
+
     
 /* Extra Small Mobile Devices */
 @media (max-width: 360px) {
@@ -6827,3 +7024,4 @@ body::before {
         font-size: 1.1rem;
     }
 }
+

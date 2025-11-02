@@ -4998,6 +4998,18 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    /* Disable smooth scroll for faster loading on mobile */
+    html {
+        scroll-behavior: auto !important;
+    }
+    
+    /* Override CSS transition variables for mobile - disable them */
+    :root {
+        --transition: none !important;
+        --transition-slow: none !important;
+        --transition-bounce: none !important;
+    }
+    
     /* Disable heavy background animations on mobile for performance */
     body::before,
     body::after {
@@ -5032,7 +5044,7 @@ body::before {
         backdrop-filter: blur(5px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.25s ease;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         padding: 3rem 0;
         border-top: 2px solid rgba(99, 102, 241, 0.3);
@@ -5061,19 +5073,18 @@ body::before {
     .nav-link {
         color: var(--text-primary);
         font-weight: 600;
-        transition: var(--transition);
+        transition: none;
         position: relative;
         padding: 15px 25px;
         border-radius: 25px;
         margin: 5px 20px;
         font-size: 1.1rem;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        text-shadow: none;
     }
     
-    .nav-link:hover {
+    .nav-link:active {
         background: rgba(99, 102, 241, 0.2);
-        transform: translateX(10px);
-        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        opacity: 0.8;
     }
     
     .hero-container {
@@ -5239,14 +5250,23 @@ body::before {
         animation-duration: 0s !important;
     }
     
-    /* Allow essential transitions for user interactions */
+    /* Minimize transitions for faster loading - only essential interactions */
+    .hamburger .bar {
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    
+    .nav-menu {
+        transition: left 0.25s ease;
+    }
+    
+    /* Disable all other transitions on mobile for faster loading */
     .nav-link,
     .btn,
-    .hamburger .bar,
     .portfolio-item,
     .service-card,
-    .testimonial-card {
-        transition: all 0.3s ease;
+    .testimonial-card,
+    .skill-item {
+        transition: none !important;
     }
     
     /* Hide scroll indicator on mobile */
@@ -5266,11 +5286,14 @@ body::before {
         transform: none !important;
     }
     
-    /* Simplify hover effects on mobile */
+    /* Disable hover effects completely on mobile for faster loading */
     .portfolio-item:hover,
     .service-card:hover,
-    .testimonial-card:hover {
-        transform: translateY(-5px) !important;
+    .testimonial-card:hover,
+    .nav-link:hover,
+    .btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
     }
     
     /* Disable filter effects on mobile (performance heavy) */
@@ -5293,20 +5316,24 @@ body::before {
         backdrop-filter: none !important;
     }
     
-    /* Disable hover effects that use transforms */
+    /* Disable ALL hover effects on mobile for faster loading */
     .portfolio-item:hover,
     .service-card:hover,
     .testimonial-card:hover,
-    .skill-item:hover {
+    .skill-item:hover,
+    .nav-link:hover,
+    .btn:hover {
         transform: none !important;
         box-shadow: none !important;
+        filter: none !important;
     }
     
-    /* Use opacity for hover feedback instead */
+    /* Minimal feedback on touch only */
     .portfolio-item:active,
     .service-card:active,
-    .btn:active {
-        opacity: 0.9;
+    .btn:active,
+    .nav-link:active {
+        opacity: 0.85;
     }
     
     /* Remove all gradients that might cause performance issues */
@@ -5339,16 +5366,40 @@ body::before {
 }
 
 @media (max-width: 480px) {
-    /* AGGRESSIVE MOBILE OPTIMIZATIONS - PREVENT HANGING */
+    /* AGGRESSIVE MOBILE OPTIMIZATIONS - PREVENT HANGING & FASTER LOADING */
     
-    /* Disable ALL animations and transitions for better performance */
+    /* Disable smooth scroll completely for instant navigation */
+    html {
+        scroll-behavior: auto !important;
+    }
+    
+    /* Override all CSS transition variables */
+    :root {
+        --transition: none !important;
+        --transition-slow: none !important;
+        --transition-bounce: none !important;
+    }
+    
+    /* Disable ALL animations completely for faster loading */
     *,
     *::before,
     *::after {
+        animation: none !important;
         animation-duration: 0s !important;
         animation-delay: 0s !important;
-        transition-duration: 0.15s !important;
-        transition-timing-function: ease !important;
+        animation-fill-mode: none !important;
+        transition: none !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    
+    /* Only allow minimal transition for hamburger menu (essential UX) */
+    .hamburger .bar {
+        transition: transform 0.15s ease, opacity 0.15s ease !important;
+    }
+    
+    .nav-menu {
+        transition: left 0.15s ease !important;
     }
     
     /* Completely disable backdrop-filter (very heavy on mobile) */
@@ -5377,11 +5428,13 @@ body::before {
         will-change: auto !important;
     }
     
-    /* Simple hover effects only */
+    /* Disable all active state transforms - use opacity only for faster response */
     .btn:active,
     .nav-link:active,
-    .portfolio-item:active {
-        transform: scale(0.98) !important;
+    .portfolio-item:active,
+    .service-card:active {
+        transform: none !important;
+        opacity: 0.8;
     }
     
     /* Disable all filter effects */

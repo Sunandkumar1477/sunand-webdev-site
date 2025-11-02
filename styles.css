@@ -15,7 +15,7 @@
     --white: #FFFFFF;
     --light-gray: #F5F5F5;
     --dark-gray: #333333;
-    --gold: #FFD700;
+    --gold: #74e4dd;
     
     /* Additional Colors */
     --dark-bg: #0B1426;
@@ -259,7 +259,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px 0 80px;
+    padding: 120px 0 20px;
     overflow: hidden;
 }
 
@@ -451,7 +451,7 @@ h3 {
     }
     to {
         width: 100px;
-        opacity: 1;
+    opacity: 1;
     }
 }
 
@@ -896,10 +896,10 @@ h3 {
 }
 
 @keyframes gridPulse {
-    0%, 100% {
+    0%, 100% { 
         opacity: 0.1;
     }
-    50% {
+    50% { 
         opacity: 0.3;
     }
 }
@@ -958,6 +958,7 @@ section {
    ============================================ */
 .about {
     position: relative;
+    padding-top: 1.5rem;
 }
 
 .about-content {
@@ -1346,7 +1347,7 @@ section {
 }
 
 @keyframes codeFloat {
-    0%, 100% {
+    0%, 100% { 
         transform: translateY(0);
     }
     50% {
@@ -1835,12 +1836,14 @@ section {
     
     .nav-logo h2 {
         font-size: 1.5rem;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--dark-bg) !important;
-        color: var(--dark-bg) !important;
-        text-shadow: none !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 1px !important;
+        font-weight: var(--font-weight-bold) !important;
     }
     
     .hamburger {
@@ -1911,11 +1914,12 @@ section {
     }
     
     .highlight {
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
-        color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        position: relative;
     }
     
     .title-underline {
@@ -1996,12 +2000,13 @@ section {
     /* Section Headers */
     .section-title {
         font-size: 2.5rem;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
-        color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
         margin-bottom: 1rem;
+        font-weight: var(--font-weight-bold) !important;
     }
     
     .section-title::after {
@@ -2022,27 +2027,25 @@ section {
         gap: 3rem;
     }
     
-    /* H3 Base Style - Mobile */
+    /* H3 Base Style - Mobile (Desktop Colors) */
     h3 {
         font-size: 1.8rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
-        text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3) !important;
-        letter-spacing: 0.3px;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 0.5px;
         line-height: 1.3;
         margin-bottom: 1rem;
     }
     
     .about-text h3 {
         font-size: 2rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .about-text p {
@@ -2066,27 +2069,64 @@ section {
         font-size: 1rem;
     }
     
+    /* Timeline - Match Desktop Display */
     .timeline {
-        padding-left: 2rem;
+        padding-left: 2.5rem;
     }
     
     .timeline::before {
-        left: 8px;
+        left: 10px;
+        width: 2px;
+        background: linear-gradient(180deg, var(--gold), var(--accent-cyan));
+    }
+    
+    .timeline-item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 2.5rem;
     }
     
     .timeline-marker {
-        left: -1.8rem;
-        width: 16px;
-        height: 16px;
+        left: -2.2rem;
+        width: 18px;
+        height: 18px;
+        border: 4px solid var(--dark-bg);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    
+    .timeline-content {
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .timeline-content h4 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        font-weight: var(--font-weight-bold) !important;
         color: var(--gold) !important;
+        margin-bottom: 0.5rem;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .timeline-content p {
-        font-size: 0.95rem;
+        font-size: 1rem;
+        color: var(--text-secondary) !important;
+        line-height: 1.6;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Ensure all text colors match desktop */
+    p {
+        color: var(--text-secondary) !important;
+    }
+    
+    .stat-label,
+    .stat-number,
+    .service-features li,
+    .testimonial-content p,
+    .contact-method p,
+    .footer-bottom p {
         color: var(--text-secondary) !important;
     }
     
@@ -2117,11 +2157,10 @@ section {
     
     .portfolio-overlay h3 {
         font-size: 1.5rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .portfolio-overlay p {
@@ -2152,11 +2191,10 @@ section {
     
     .service-card h3 {
         font-size: 1.5rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .service-card p {
@@ -2185,11 +2223,10 @@ section {
     /* Contact Section */
     .contact-info h3 {
         font-size: 2rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .contact-info p {
@@ -2225,11 +2262,10 @@ section {
     
     .footer-logo h3 {
         font-size: 1.8rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .footer-links {
@@ -2322,13 +2358,21 @@ section {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     }
     
-    /* Navigation */
+    /* Navigation - Desktop Color Gradient */
     .nav-container {
         padding: 0 1rem;
     }
     
     .nav-logo h2 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        font-weight: var(--font-weight-bold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 1px !important;
     }
     
     /* Hero */
@@ -2368,6 +2412,12 @@ section {
     /* Sections */
     .section-title {
         font-size: 2rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        font-weight: var(--font-weight-bold) !important;
     }
     
     .section-subtitle {
@@ -2382,28 +2432,31 @@ section {
         padding: 0 1rem;
     }
     
-    /* H3 Base Style - Small Mobile */
+    /* H3 Base Style - Small Mobile (Desktop Colors) */
     h3 {
         font-size: 1.6rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
-        text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3) !important;
-        letter-spacing: 0.3px;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 0.5px;
         line-height: 1.3;
         margin-bottom: 0.75rem;
     }
     
     /* About */
     .about-text h3 {
-        font-size: 1.8rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+            font-size: 1.8rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    
+    /* Ensure all text colors match desktop */
+    p {
+        color: var(--text-secondary) !important;
     }
     
     .about-text p {
@@ -2411,7 +2464,7 @@ section {
     }
     
     .skills {
-        grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
     }
     
     .skill-item {
@@ -2422,22 +2475,50 @@ section {
         font-size: 2rem;
     }
     
+    /* Timeline - Match Desktop Display */
     .timeline {
-        padding-left: 1.5rem;
+        padding-left: 2.5rem;
+    }
+    
+    .timeline::before {
+        left: 10px;
+        width: 2px;
+    }
+    
+    .timeline-item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 2.5rem;
     }
     
     .timeline-marker {
-        left: -1.3rem;
-        width: 14px;
-        height: 14px;
+        left: -2.2rem;
+        width: 18px;
+        height: 18px;
+        border: 4px solid var(--dark-bg);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    
+    .timeline-content {
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .timeline-content h4 {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
+        font-weight: var(--font-weight-bold) !important;
+        color: var(--gold) !important;
+        margin-bottom: 0.5rem;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .timeline-content p {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        color: var(--text-secondary) !important;
+        line-height: 1.6;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     /* Portfolio */
@@ -2446,20 +2527,19 @@ section {
     }
     
     .portfolio-overlay {
-        padding: 1rem;
-    }
-    
+            padding: 1rem;
+        }
+        
     .portfolio-overlay h3 {
         font-size: 1.3rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .portfolio-overlay p {
-        font-size: 0.9rem;
+            font-size: 0.9rem;
     }
     
     /* Services */
@@ -2474,12 +2554,11 @@ section {
     }
     
     .service-card h3 {
-        font-size: 1.3rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+            font-size: 1.3rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .service-card p {
@@ -2501,18 +2580,17 @@ section {
     
     /* Contact */
     .contact-info h3 {
-        font-size: 1.8rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
-    }
-    
+            font-size: 1.8rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        }
+        
     .contact-info p {
-        font-size: 1rem;
-    }
-    
+            font-size: 1rem;
+        }
+        
     .contact-method {
         padding: 1.2rem;
     }
@@ -2535,13 +2613,26 @@ section {
         padding: 3rem 0 1.5rem;
     }
     
+    /* Footer - Desktop Color Gradient */
     .footer-logo h3 {
-        font-size: 1.5rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+            font-size: 1.8rem;
+        font-weight: var(--font-weight-bold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-logo p {
+            font-size: 1rem;
+        color: var(--text-secondary) !important;
+        font-weight: var(--font-weight-medium) !important;
+        letter-spacing: 0.5px;
+        text-shadow: none !important;
+        margin-top: 0.5rem;
     }
     
     .footer-social {
@@ -2556,21 +2647,70 @@ section {
 }
 
 /* ============================================
+   RESTORE DESKTOP STYLES FOR 480px AND ABOVE
+   ============================================ */
+@media (min-width: 481px) {
+    /* Ensure desktop gradient text styles for nav and footer logos */
+    .nav-logo h2 {
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.3) !important;
+    }
+    
+    .footer-logo h3 {
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+    }
+    
+    .footer-logo p {
+        color: var(--text-secondary) !important;
+        text-shadow: none !important;
+    }
+    
+    /* Restore desktop text colors for all elements */
+    h3 {
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    
+    .about-text h3,
+    .portfolio-overlay h3,
+    .service-card h3,
+    .contact-info h3 {
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+}
+
+/* ============================================
    TINY SCREENS (≤360px)
    ============================================ */
-@media (max-width: 360px) {
-    /* H3 Base Style - Tiny Screens */
+    @media (max-width: 360px) {
+    /* H3 Base Style - Tiny Screens (Desktop Colors) */
     h3 {
         font-size: 1.4rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
-        text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3) !important;
-        letter-spacing: 0.2px;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 0.5px;
         line-height: 1.3;
         margin-bottom: 0.75rem;
+    }
+    
+    /* Ensure all text colors match desktop */
+    p {
+        color: var(--text-secondary) !important;
     }
     
     .hero-title {
@@ -2579,59 +2719,135 @@ section {
     
     .section-title {
         font-size: 1.8rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        font-weight: var(--font-weight-bold) !important;
     }
     
     .about-text h3 {
-        font-size: 1.5rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+            font-size: 1.5rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .portfolio-overlay h3 {
         font-size: 1.2rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .service-card h3 {
         font-size: 1.2rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
     .contact-info h3 {
         font-size: 1.5rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    
+    /* Timeline - Match Desktop Display - Tiny Screens */
+    .timeline {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline::before {
+        left: 10px;
+        width: 2px;
+        background: linear-gradient(180deg, var(--gold), var(--accent-cyan));
+    }
+    
+    .timeline-item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 2.5rem;
+    }
+    
+    .timeline-marker {
+        left: -2.2rem;
+        width: 18px;
+        height: 18px;
+        border: 4px solid var(--dark-bg);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    
+    .timeline-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.5rem;
+        font-weight: var(--font-weight-bold) !important;
         color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        margin-bottom: 0.5rem;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .timeline-content p {
+        font-size: 0.95rem;
+        color: var(--text-secondary) !important;
+        line-height: 1.6;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .footer-logo h3 {
         font-size: 1.3rem;
-        color: var(--gold) !important;
-        background: var(--gold) !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
-        -webkit-text-fill-color: var(--gold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
     }
     
+    /* Navigation - Desktop Color Gradient - Tiny Screens */
     .nav-logo h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        font-weight: var(--font-weight-bold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.6rem;
+        font-weight: var(--font-weight-bold) !important;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan)) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .footer-logo p {
+        font-size: 0.95rem;
+        color: var(--text-secondary) !important;
+        font-weight: var(--font-weight-medium) !important;
+        letter-spacing: 0.4px;
+        text-shadow: none !important;
     }
     
     .btn {
-        font-size: 0.9rem;
+            font-size: 0.9rem;
         padding: 12px 24px;
     }
 }

@@ -5344,6 +5344,23 @@ body::before {
         display: none !important;
     }
     
+    /* Disable elements with white radial gradients that create white blocks */
+    .floating-shapes .shape,
+    .hero-particles .particle,
+    .floating-code,
+    .code-snippet {
+        display: none !important;
+    }
+    
+    /* Fix any white radial gradients */
+    .shape,
+    .particle,
+    .floating-elements::before,
+    .floating-elements::after {
+        background: none !important;
+        background-image: none !important;
+    }
+    
     /* Simplify navbar */
     .navbar::before {
         display: none !important;
@@ -5362,6 +5379,153 @@ body::before {
     /* Disable stat progress animations */
     .stat-progress {
         display: none !important;
+    }
+    
+    /* Fix white blocks covering text - disable button pseudo-elements */
+    .btn::before,
+    .btn::after,
+    .btn-primary::before,
+    .btn-primary::after,
+    .btn-secondary::before,
+    .btn-secondary::after,
+    .btn-glow,
+    .card-glow,
+    .card-trail {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    
+    /* Ensure button text is on top and visible */
+    .btn,
+    .btn-text,
+    .btn-icon {
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    /* Fix portfolio item backgrounds that might show as white blocks */
+    .portfolio-item,
+    .portfolio-image,
+    .project-preview,
+    .project-content {
+        background: transparent !important;
+        position: relative !important;
+    }
+    
+    /* Fix white backgrounds in project previews that show as white blocks */
+    .project-preview,
+    .skiller7-project .project-preview,
+    .ecommerce-project .project-preview,
+    .portfolio-website-project .project-preview,
+    .landing-page-project .project-preview {
+        background: rgba(11, 20, 38, 0.5) !important;
+    }
+    
+    /* Remove any white backgrounds from project elements */
+    .browser-bar {
+        background: rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    .project-content,
+    .project-logo {
+        background: transparent !important;
+    }
+    
+    /* Fix white browser dots that create white blocks */
+    .browser-dots span {
+        background: rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    .browser-dots span:nth-child(1) { 
+        background: #ff5f56 !important;
+    }
+    .browser-dots span:nth-child(2) { 
+        background: #ffbd2e !important;
+    }
+    .browser-dots span:nth-child(3) { 
+        background: #27ca3f !important;
+    }
+    
+    .portfolio-image::before,
+    .portfolio-image::after,
+    .project-preview::before,
+    .project-preview::after {
+        display: none !important;
+    }
+    
+    /* Ensure project preview content is visible */
+    .project-content,
+    .project-logo,
+    .project-logo h4,
+    .browser-title,
+    .project-stats {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Fix browser dots white backgrounds - make them darker */
+    .browser-dots span {
+        background: rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    .browser-dots span:nth-child(1) { 
+        background: #ff5f56 !important;
+    }
+    .browser-dots span:nth-child(2) { 
+        background: #ffbd2e !important;
+    }
+    .browser-dots span:nth-child(3) { 
+        background: #27ca3f !important;
+    }
+    
+    /* Remove white/light backgrounds that create white blocks - be specific */
+    .project-preview::before,
+    .project-content::before,
+    .btn::before,
+    .service-card::before {
+        background: none !important;
+        background-image: none !important;
+    }
+    
+    /* Keep only essential backgrounds, remove white overlays */
+    .btn-primary {
+        background: var(--gradient-galaxy) !important;
+    }
+    
+    .btn-secondary {
+        background: transparent !important;
+    }
+    
+    /* Fix any white text on white background issues */
+    .project-content h4,
+    .project-logo h4 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Ensure text elements are above any potential white overlays */
+    .title-line,
+    .hero-description,
+    .section-title,
+    .section-subtitle,
+    .about-text,
+    .about-text h3,
+    .about-text p,
+    .service-card,
+    .service-card h3,
+    .service-card p,
+    .testimonial-card p,
+    .contact-info,
+    .contact-method,
+    .portfolio-overlay,
+    .timeline-content {
+        position: relative !important;
+        z-index: 5 !important;
     }
     
     /* Fix text visibility issues - elements that start with opacity 0 need to be visible */
@@ -5596,6 +5760,116 @@ body::before {
         visibility: visible !important;
         transform: none !important;
         background: rgba(11, 20, 38, 0.98) !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    /* Disable all white overlay pseudo-elements on mobile */
+    .btn::before,
+    .btn::after,
+    .btn-primary::before,
+    .btn-primary::after,
+    .btn-secondary::before,
+    .btn-secondary::after,
+    .portfolio-item::before,
+    .portfolio-item::after,
+    .service-card::before,
+    .service-card::after,
+    .testimonial-card::before,
+    .testimonial-card::after,
+    .project-preview::before,
+    .project-preview::after,
+    .project-content::before,
+    .project-content::after,
+    .btn-glow,
+    .card-glow,
+    .card-trail {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        background: none !important;
+    }
+    
+    /* Fix white backgrounds in project previews that create white blocks */
+    .project-preview,
+    .skiller7-project .project-preview,
+    .ecommerce-project .project-preview,
+    .portfolio-website-project .project-preview,
+    .landing-page-project .project-preview {
+        background: rgba(11, 20, 38, 0.5) !important;
+    }
+    
+    /* Ensure project content text is visible and not covered */
+    .project-content,
+    .project-logo,
+    .project-logo h4,
+    .browser-title,
+    .project-stats,
+    .project-stats .stat-number,
+    .project-stats .stat-label,
+    .browser-bar,
+    .browser-dots {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: transparent !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    /* Fix browser dots - remove white backgrounds that create white blocks */
+    .browser-dots span {
+        background: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    .browser-dots span:nth-child(1) { 
+        background: #ff5f56 !important;
+    }
+    .browser-dots span:nth-child(2) { 
+        background: #ffbd2e !important;
+    }
+    .browser-dots span:nth-child(3) { 
+        background: #27ca3f !important;
+    }
+    
+    /* Remove any white background gradients that might show as blocks */
+    .browser-bar {
+        background: rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    /* Fix project content headings with gradient backgrounds */
+    .project-content h4,
+    .project-logo h4 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Ensure all text content is above any background layers */
+    .project-content *,
+    .browser-title,
+    .project-logo *,
+    .project-stats * {
+        position: relative !important;
+        z-index: 15 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Ensure all text content has proper z-index above backgrounds */
+    .hero-content,
+    .hero-title,
+    .hero-description,
+    .about-text,
+    .section-header,
+    .service-card *,
+    .testimonial-card *,
+    .portfolio-overlay *,
+    .contact-info * {
+        position: relative !important;
+        z-index: 5 !important;
     }
     
     /* Ensure text containers don't clip content on small mobile */
@@ -6116,6 +6390,26 @@ body::before {
         visibility: visible !important;
         transform: none !important;
         background: rgba(11, 20, 38, 0.98) !important;
+    }
+    
+    /* Fix white blocks - disable all pseudo-elements that might have white backgrounds */
+    .btn::before,
+    .btn::after,
+    .project-preview::before,
+    .project-content::before,
+    .portfolio-item::before,
+    .service-card::before {
+        display: none !important;
+        background: none !important;
+    }
+    
+    /* Fix project content text that might be hidden */
+    .project-content h4,
+    .project-logo h4,
+    .browser-title {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        background: transparent !important;
     }
     
     /* Ensure text containers don't clip content on very small mobile */

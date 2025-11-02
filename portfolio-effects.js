@@ -97,40 +97,61 @@ class PortfolioBackgroundEffects {
     }
 
     addPortfolioMouseTracking() {
+        // Disable mouse tracking on mobile (no mouse on mobile devices)
+        if (this.isMobile()) {
+            return;
+        }
+        
         const portfolioRings = document.querySelectorAll('.portfolio-ring');
         const portfolioShapes = document.querySelectorAll('.portfolio-shape');
         
+        let ticking = false;
         document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            // Only apply mouse tracking when hovering over portfolio section
-            const portfolioSection = document.querySelector('.portfolio');
-            if (!portfolioSection) return;
-            
-            const rect = portfolioSection.getBoundingClientRect();
-            const isInPortfolio = e.clientX >= rect.left && e.clientX <= rect.right && 
-                                e.clientY >= rect.top && e.clientY <= rect.bottom;
-            
-            if (isInPortfolio) {
-                portfolioRings.forEach((ring, index) => {
-                    const speed = (index + 1) * 0.3;
-                    const x = (mouseX - 0.5) * speed * 15;
-                    const y = (mouseY - 0.5) * speed * 15;
-                    ring.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const mouseX = e.clientX / window.innerWidth;
+                    const mouseY = e.clientY / window.innerHeight;
+                    
+                    // Only apply mouse tracking when hovering over portfolio section
+                    const portfolioSection = document.querySelector('.portfolio');
+                    if (!portfolioSection) {
+                        ticking = false;
+                        return;
+                    }
+                    
+                    const rect = portfolioSection.getBoundingClientRect();
+                    const isInPortfolio = e.clientX >= rect.left && e.clientX <= rect.right && 
+                                        e.clientY >= rect.top && e.clientY <= rect.bottom;
+                    
+                    if (isInPortfolio) {
+                        portfolioRings.forEach((ring, index) => {
+                            const speed = (index + 1) * 0.3;
+                            const x = (mouseX - 0.5) * speed * 15;
+                            const y = (mouseY - 0.5) * speed * 15;
+                            ring.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+                        });
+                        
+                        portfolioShapes.forEach((shape, index) => {
+                            const speed = (index + 1) * 0.2;
+                            const x = (mouseX - 0.5) * speed * 8;
+                            const y = (mouseY - 0.5) * speed * 8;
+                            shape.style.transform = `translate(${x}px, ${y}px)`;
+                        });
+                    }
+                    
+                    ticking = false;
                 });
-                
-                portfolioShapes.forEach((shape, index) => {
-                    const speed = (index + 1) * 0.2;
-                    const x = (mouseX - 0.5) * speed * 8;
-                    const y = (mouseY - 0.5) * speed * 8;
-                    shape.style.transform = `translate(${x}px, ${y}px)`;
-                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
     }
 
     addPortfolioScrollEffects() {
+        // Already disabled on mobile in init, but extra safety
+        if (this.isMobile()) {
+            return;
+        }
+        
         let ticking = false;
         
         const updatePortfolioScrollEffects = () => {
@@ -177,7 +198,7 @@ class PortfolioBackgroundEffects {
             }
         };
         
-        window.addEventListener('scroll', requestTick);
+        window.addEventListener('scroll', requestTick, { passive: true });
     }
 }
 

@@ -44,16 +44,31 @@ class Interactive3D {
     }
 
     addScrollParallax() {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.floating-card');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
-                const yPos = -(scrolled * speed);
-                element.style.transform += ` translateY(${yPos}px)`;
-            });
-        });
+        // Disable scroll parallax on mobile - already disabled in init, but extra safety
+        if (this.isMobile()) {
+            return;
+        }
+        
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const parallaxElements = document.querySelectorAll('.floating-card');
+                    
+                    parallaxElements.forEach((element, index) => {
+                        const speed = 0.5 + (index * 0.1);
+                        const yPos = -(scrolled * speed);
+                        element.style.transform += ` translateY(${yPos}px)`;
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
     }
 
     addGlowEffects() {
@@ -116,19 +131,29 @@ class NavbarScroll {
     init() {
         if (!this.navbar) return;
         
-        // Simplify on mobile
+        // Throttle scroll events for better performance
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (!this.isMobile()) {
+                        this.handleScroll();
+                    }
+                    this.updateActiveNavLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        
+        // Simplify on mobile - only update active nav link
         if (this.isMobile()) {
-            window.addEventListener('scroll', () => this.updateActiveNavLink());
+            window.addEventListener('scroll', handleScroll, { passive: true });
             return;
         }
 
-        window.addEventListener('scroll', () => {
-            this.handleScroll();
-        });
-
-        // Update active nav link based on scroll position
+        window.addEventListener('scroll', handleScroll, { passive: true });
         this.updateActiveNavLink();
-        window.addEventListener('scroll', () => this.updateActiveNavLink());
     }
 
     handleScroll() {
@@ -371,6 +396,11 @@ class ParticleEffect {
     }
 
     init() {
+        // Disable particle effects on mobile for performance
+        if (window.innerWidth <= 768) {
+            return;
+        }
+        
         this.createCanvas();
         this.createParticles();
         this.animate();
@@ -453,12 +483,22 @@ class ScrollProgress {
         `;
         document.body.appendChild(progressBar);
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            progressBar.style.width = scrollPercent + '%';
-        });
+        // Throttle scroll for better performance
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollTop = window.pageYOffset;
+                    const docHeight = document.body.scrollHeight - window.innerHeight;
+                    const scrollPercent = (scrollTop / docHeight) * 100;
+                    progressBar.style.width = scrollPercent + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
     }
 }
 
@@ -492,17 +532,31 @@ class HeroEnhancements {
     }
 
     addHeroParallax() {
+        // Disable parallax on mobile for performance
+        if (window.innerWidth <= 768) {
+            return;
+        }
+        
         const hero = document.querySelector('.hero');
         if (!hero) return;
 
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.5;
+                    
+                    if (hero) {
+                        hero.style.transform = `translateY(${rate}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
     }
 
     addButtonRipple() {
@@ -1860,28 +1914,41 @@ class LandingPageEnhancements {
     }
 
     addBackgroundEffects() {
+        // Disable mouse tracking on mobile (no mouse on mobile devices)
+        if (window.innerWidth <= 768) {
+            return;
+        }
+        
         // Add mouse tracking for cosmic rings
         const rings = document.querySelectorAll('.ring');
         const shapes = document.querySelectorAll('.shape');
         
+        let ticking = false;
         document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            rings.forEach((ring, index) => {
-                const speed = (index + 1) * 0.5;
-                const x = (mouseX - 0.5) * speed * 20;
-                const y = (mouseY - 0.5) * speed * 20;
-                ring.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-            });
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.3;
-                const x = (mouseX - 0.5) * speed * 10;
-                const y = (mouseY - 0.5) * speed * 10;
-                shape.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const mouseX = e.clientX / window.innerWidth;
+                    const mouseY = e.clientY / window.innerHeight;
+                    
+                    rings.forEach((ring, index) => {
+                        const speed = (index + 1) * 0.5;
+                        const x = (mouseX - 0.5) * speed * 20;
+                        const y = (mouseY - 0.5) * speed * 20;
+                        ring.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+                    });
+                    
+                    shapes.forEach((shape, index) => {
+                        const speed = (index + 1) * 0.3;
+                        const x = (mouseX - 0.5) * speed * 10;
+                        const y = (mouseY - 0.5) * speed * 10;
+                        shape.style.transform = `translate(${x}px, ${y}px)`;
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
     }
 
     addGridInteractions() {
@@ -1934,6 +2001,11 @@ class LandingPageEnhancements {
     }
 
     addScrollEffects() {
+        // Disable scroll effects on mobile for performance
+        if (window.innerWidth <= 768) {
+            return;
+        }
+        
         let ticking = false;
         
         const updateScrollEffects = () => {
@@ -1971,7 +2043,7 @@ class LandingPageEnhancements {
             }
         };
         
-        window.addEventListener('scroll', requestTick);
+        window.addEventListener('scroll', requestTick, { passive: true });
     }
 }
 

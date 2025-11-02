@@ -4998,6 +4998,22 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    /* Disable heavy background animations on mobile for performance */
+    body::before,
+    body::after {
+        animation: none !important;
+        display: none !important;
+    }
+    
+    .universe-bg {
+        animation: none !important;
+    }
+    
+    /* Reduce backdrop-filter on mobile (performance heavy) */
+    .navbar {
+        backdrop-filter: blur(5px);
+    }
+    
     .hamburger {
         display: flex;
     }
@@ -5013,7 +5029,7 @@ body::before {
         top: 80px;
         flex-direction: column;
         background: rgba(15, 15, 35, 0.98);
-        backdrop-filter: blur(25px);
+        backdrop-filter: blur(5px);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -5189,6 +5205,7 @@ body::before {
     .hero::before,
     .hero::after {
         display: none !important;
+        animation: none !important;
     }
     
     .universe-bg,
@@ -5201,6 +5218,35 @@ body::before {
     .hero-grid,
     .grid-line {
         display: none !important;
+        animation: none !important;
+    }
+    
+    /* Disable heavy continuous animations on mobile */
+    body::before,
+    body::after,
+    .universe-bg,
+    .hero::before,
+    .hero::after,
+    .ring,
+    .shape,
+    .particle,
+    .portfolio-ring,
+    .portfolio-shape,
+    .portfolio-particle,
+    .cosmic-rings,
+    .floating-shapes {
+        animation: none !important;
+        animation-duration: 0s !important;
+    }
+    
+    /* Allow essential transitions for user interactions */
+    .nav-link,
+    .btn,
+    .hamburger .bar,
+    .portfolio-item,
+    .service-card,
+    .testimonial-card {
+        transition: all 0.3s ease;
     }
     
     /* Hide scroll indicator on mobile */
@@ -5211,6 +5257,27 @@ body::before {
     /* Reduce parallax effects that can cause hanging */
     body {
         overflow-x: hidden;
+    }
+    
+    /* Disable transform animations on mobile */
+    .portfolio-item,
+    .service-card,
+    .testimonial-card {
+        transform: none !important;
+    }
+    
+    /* Simplify hover effects on mobile */
+    .portfolio-item:hover,
+    .service-card:hover,
+    .testimonial-card:hover {
+        transform: translateY(-5px) !important;
+    }
+    
+    /* Disable filter effects on mobile (performance heavy) */
+    .navbar,
+    .nav-link,
+    .btn {
+        filter: none !important;
     }
 }
 

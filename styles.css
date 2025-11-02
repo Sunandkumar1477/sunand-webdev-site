@@ -5279,9 +5279,116 @@ body::before {
     .btn {
         filter: none !important;
     }
+    
+    /* Disable code animations on mobile */
+    .code-animation,
+    .floating-code,
+    .code-snippet {
+        display: none !important;
+    }
+    
+    /* Simplify portfolio overlays */
+    .portfolio-overlay {
+        background: rgba(11, 20, 38, 0.95) !important;
+        backdrop-filter: none !important;
+    }
+    
+    /* Disable hover effects that use transforms */
+    .portfolio-item:hover,
+    .service-card:hover,
+    .testimonial-card:hover,
+    .skill-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Use opacity for hover feedback instead */
+    .portfolio-item:active,
+    .service-card:active,
+    .btn:active {
+        opacity: 0.9;
+    }
+    
+    /* Remove all gradients that might cause performance issues */
+    .hero-background-effects,
+    .portfolio-background-effects,
+    .about::before,
+    .about::after {
+        display: none !important;
+    }
+    
+    /* Simplify navbar */
+    .navbar::before {
+        display: none !important;
+    }
+    
+    /* Disable text gradients on mobile */
+    .nav-logo h2 {
+        background: var(--text-primary) !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+    }
+    
+    /* Disable stat progress animations */
+    .stat-progress {
+        display: none !important;
+    }
 }
 
 @media (max-width: 480px) {
+    /* AGGRESSIVE MOBILE OPTIMIZATIONS - PREVENT HANGING */
+    
+    /* Disable ALL animations and transitions for better performance */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.15s !important;
+        transition-timing-function: ease !important;
+    }
+    
+    /* Completely disable backdrop-filter (very heavy on mobile) */
+    * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Remove all heavy box-shadows for better performance */
+    * {
+        box-shadow: none !important;
+    }
+    
+    /* Only allow minimal shadows for essential UI elements */
+    .navbar,
+    .nav-menu,
+    .btn,
+    .portfolio-item,
+    .service-card {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Disable all transform effects */
+    * {
+        transform: none !important;
+        will-change: auto !important;
+    }
+    
+    /* Simple hover effects only */
+    .btn:active,
+    .nav-link:active,
+    .portfolio-item:active {
+        transform: scale(0.98) !important;
+    }
+    
+    /* Disable all filter effects */
+    * {
+        filter: none !important;
+    }
+    
     .hero-container {
         padding: 0 15px;
         padding-top: 100px;
@@ -5503,321 +5610,177 @@ body::before {
     .landing-page-project .floating-code {
         display: none;
     }
-}
     
-/* Small Mobile Devices (max-width: 480px) - Moved outside */
-@media (max-width: 480px) {
-        /* Hide About Section Middle Line on Small Mobile */
-        .about-content::before {
-            display: none;
-        }
-        /* Consistent Section Padding */
-        .hero {
-            padding: 3rem 0 0.8rem 0;
-        }
-        
-        .about {
-            padding: 0.3rem 0 120px 0;
-        }
-        
-        .portfolio {
-            padding: 0.8rem 0 120px 0;
-        }
-        
-        .stat-item {
-            padding: 1rem 1.5rem;
-        }
-        
-        .stat-number {
-            font-size: 1.8rem;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-        }
-        
-        .hero-buttons {
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .btn {
-            padding: 12px 24px;
-            font-size: 0.9rem;
-        }
-        
-        /* Portfolio Section Small Mobile Adjustments */
-        .portfolio-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        .portfolio-item {
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Landing Page Project Small Mobile Adjustments */
-        .landing-page-project .project-preview {
-            min-height: 280px;
-        }
-        
-        .landing-page-project .project-content {
-            padding: 1rem;
-        }
-        
-        .landing-page-project .project-logo {
-            flex-direction: column;
-            gap: 0.5rem;
-            text-align: center;
-        }
-        
-        .landing-page-project .logo-icon {
-            font-size: 1.8rem;
-        }
-        
-        .landing-page-project .project-logo h4 {
-            font-size: 1.3rem;
-        }
-        
-        .landing-page-project .project-stats {
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        
-        .landing-page-project .stat-item {
-            padding: 0.5rem 0.8rem;
-        }
-        
-        .landing-page-project .stat-number {
-            font-size: 1.2rem;
-        }
-        
-        .landing-page-project .stat-label {
-            font-size: 0.7rem;
-        }
-        
-        .landing-page-project .tech-showcase {
-            flex-direction: row;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-        }
-        
-        .landing-page-project .tech-item {
-            padding: 0.4rem;
-        }
-        
-        .landing-page-project .tech-item i {
-            font-size: 1rem;
-        }
-        
-        .landing-page-project .tech-item span {
-            font-size: 0.6rem;
-        }
-        
-        .landing-page-project .portfolio-overlay {
-            padding: 1rem;
-        }
-        
-        .landing-page-project .portfolio-overlay h3 {
-            font-size: 1.4rem;
-        }
-        
-        .landing-page-project .portfolio-overlay p {
-            font-size: 0.9rem;
-            padding: 0.6rem 0.8rem;
-        }
-        
-        /* Portfolio Website Project Small Mobile Adjustments */
-        .portfolio-website-project .project-content {
-            padding: 1rem;
-        }
-        
-        .portfolio-website-project .project-logo h4 {
-            font-size: 1.3rem;
-        }
-        
-        .portfolio-website-project .portfolio-overlay {
-            padding: 1rem;
-        }
-        
-        .portfolio-website-project .portfolio-overlay h3 {
-            font-size: 1.4rem;
-        }
-        
-        .portfolio-website-project .portfolio-overlay p {
-            font-size: 0.9rem;
-            padding: 0.6rem 0.8rem;
-        }
-        
-        /* Skiller7 Project Small Mobile Adjustments */
-        .skiller7-project .project-content {
-            padding: 1rem;
-        }
-        
-        .skiller7-project .project-logo h4 {
-            font-size: 1.3rem;
-        }
-        
-        .skiller7-project .portfolio-overlay {
-            padding: 1rem;
-        }
-        
-        .skiller7-project .portfolio-overlay h3 {
-            font-size: 1.4rem;
-        }
-        
-        .skiller7-project .portfolio-overlay p {
-            font-size: 0.9rem;
-            padding: 0.6rem 0.8rem;
-        }
-        
-        /* E-commerce Project Small Mobile Adjustments */
-        .ecommerce-project .project-content {
-            padding: 1rem;
-        }
-        
-        .ecommerce-project .project-logo h4 {
-            font-size: 1.3rem;
-        }
-        
-        .ecommerce-project .portfolio-overlay {
-            padding: 1rem;
-        }
-        
-        .ecommerce-project .portfolio-overlay h3 {
-            font-size: 1.4rem;
-        }
-        
-        .ecommerce-project .portfolio-overlay p {
-            font-size: 0.9rem;
-            padding: 0.6rem 0.8rem;
-        }
-        
-        /* About Section Small Mobile Adjustments */
-        .about-text h3 {
-            font-size: 1.8rem;
-        }
-        
-        .about-text p {
-            font-size: 1rem;
-        }
-        
-        .skills-grid {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-        
-        .skill-item {
-            padding: 1rem;
-        }
-        
-        .skill-item i {
-            font-size: 1.5rem;
-        }
-        
-        .skill-item span {
-            font-size: 0.9rem;
-        }
-        
-        /* Services Section Small Mobile Adjustments */
-        .services-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        .service-card {
-            padding: 1.5rem;
-        }
-        
-        .service-card h3 {
-            font-size: 1.3rem;
-        }
-        
-        .service-card p {
-            font-size: 0.9rem;
-        }
-        
-        /* Contact Section Small Mobile Adjustments */
-        .contact-info h3 {
-            font-size: 1.8rem;
-        }
-        
-        .contact-info p {
-            font-size: 1rem;
-        }
-        
-        .contact-form {
-            padding: 1.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            padding: 12px 16px;
-            font-size: 0.9rem;
-        }
-        
-        .btn {
-            padding: 12px 24px;
-            font-size: 0.9rem;
-        }
-        
-        /* Section Titles Small Mobile Adjustments */
-        .section-title {
-            font-size: 2rem;
-        }
-        
-        .section-subtitle {
-            font-size: 1rem;
-        }
-        
-        /* Container Small Mobile Adjustments */
-        .container {
-            padding: 0 1rem;
-        }
-        
-        /* Footer Small Mobile Adjustments */
-        .footer-content {
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
-        }
-        
-        .footer-links {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+    /* Additional Small Mobile Optimizations */
+    /* Hide About Section Middle Line on Small Mobile */
+    .about-content::before {
+        display: none;
     }
     
-    /* Extra Small Mobile Devices */
-    @media (max-width: 360px) {
-        /* Hide About Section Middle Line on Extra Small Mobile */
-        .about-content::before {
-            display: none;
-        }
-        /* Consistent Section Padding */
-        .hero {
-            padding: 2.5rem 0 0.5rem 0;
-        }
-        
-        .about {
-            padding: 0.2rem 0 120px 0;
-        }
-        
-        .portfolio {
-            padding: 0.5rem 0 120px 0;
-        }
-        
-        .stat-item {
-            padding: 0.8rem 1rem;
-        }
-        
-        .stat-number {
-            font-size: 1.5rem;
-        }
-        
-        .stat-label {
-            font-size: 0.8rem;
-        }
+    /* Portfolio Section Small Mobile Adjustments */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .portfolio-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* About Section Small Mobile Adjustments */
+    .about-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .skill-item {
+        padding: 1rem;
+    }
+    
+    .skill-item i {
+        font-size: 1.5rem;
+    }
+    
+    .skill-item span {
+        font-size: 0.9rem;
+    }
+    
+    /* Services Section Small Mobile Adjustments */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* Contact Section Small Mobile Adjustments */
+    .contact-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    /* Section Titles Small Mobile Adjustments */
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Container Small Mobile Adjustments */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Footer Small Mobile Adjustments */
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .portfolio-website-project .floating-code {
+        display: none;
+    }
+    
+    .portfolio-website-project .project-preview {
+        padding: 1.5rem;
+        min-height: 250px;
+    }
+    
+    .portfolio-website-project .portfolio-overlay {
+        padding: 0.8rem;
+    }
+    
+    .portfolio-website-project .portfolio-overlay p {
+        padding: 0.6rem;
+        font-size: 1.1rem;
+    }
+}
+    
+/* Extra Small Mobile Devices */
+@media (max-width: 360px) {
+    /* ULTRA AGGRESSIVE OPTIMIZATIONS FOR VERY SMALL SCREENS */
+    
+    /* Completely disable all visual effects */
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        will-change: auto !important;
+    }
+    
+    /* Minimal essential styles only */
+    .navbar {
+        background: rgba(11, 20, 38, 0.98) !important;
+        backdrop-filter: none !important;
+    }
+    
+    .btn:active {
+        opacity: 0.8;
+    }
+    
+    /* Hide About Section Middle Line on Extra Small Mobile */
+    .about-content::before {
+        display: none;
+    }
+    
+    /* Consistent Section Padding */
+    .hero {
+        padding: 2.5rem 0 0.5rem 0;
+    }
+    
+    .about {
+        padding: 0.2rem 0 120px 0;
+    }
+    
+    .portfolio {
+        padding: 0.5rem 0 120px 0;
+    }
+    
+    .stat-item {
+        padding: 0.8rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
         
         /* Landing Page Project Extra Small Mobile Adjustments */
         .landing-page-project .project-preview {
@@ -5925,12 +5888,11 @@ body::before {
             font-size: 0.8rem;
         }
         
-        /* Form Extra Small Mobile Adjustments */
-        .form-group input,
-        .form-group textarea {
-            padding: 10px 14px;
-            font-size: 0.8rem;
-        }
+    /* Form Extra Small Mobile Adjustments */
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.8rem;
     }
     
     .portfolio-website-project .floating-code {

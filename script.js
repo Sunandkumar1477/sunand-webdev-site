@@ -248,8 +248,17 @@ class ScrollAnimations {
     constructor() {
         this.init();
     }
+    
+    isSmallMobile() {
+        return window.innerWidth <= 480;
+    }
 
     init() {
+        // Disable on very small mobile devices
+        if (this.isSmallMobile()) {
+            return;
+        }
+        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -258,7 +267,12 @@ class ScrollAnimations {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
+                    // On mobile, just show without animation
+                    if (window.innerWidth <= 480) {
+                        entry.target.style.opacity = '1';
+                    } else {
+                        entry.target.classList.add('animate-in');
+                    }
                 }
             });
         }, observerOptions);
@@ -2049,22 +2063,35 @@ class LandingPageEnhancements {
 
 // Initialize all features when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new HeroEnhancements();
-    new PortfolioEnhancements();
-    new EcommerceEnhancements();
-    new Skiller7Enhancements();
-    new SkillCards();
-    new Interactive3D();
+    const isMobile = window.innerWidth <= 768;
+    const isSmallMobile = window.innerWidth <= 480;
+    
+    // Only initialize essential features on mobile
     new SmoothScroll();
     new NavbarScroll();
     new MobileMenu();
-    new ScrollAnimations();
-    new ParallaxEffect();
     new ContactForm();
-    new ScrollProgress();
-    new LandingPageEnhancements();
-    new PortfolioWebsiteEnhancements();
-    new LandingPageProjectEnhancements();
+    
+    // Disable all heavy animations and effects on mobile
+    if (!isMobile) {
+        new HeroEnhancements();
+        new PortfolioEnhancements();
+        new EcommerceEnhancements();
+        new Skiller7Enhancements();
+        new SkillCards();
+        new Interactive3D();
+        new ScrollAnimations();
+        new ParallaxEffect();
+        new ScrollProgress();
+        new LandingPageEnhancements();
+        new PortfolioWebsiteEnhancements();
+        new LandingPageProjectEnhancements();
+    } else {
+        // Minimal scroll animations only for mobile (very lightweight)
+        if (!isSmallMobile) {
+            new ScrollAnimations();
+        }
+    }
     
     // Add animation classes to CSS
     const style = document.createElement('style');

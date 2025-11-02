@@ -5366,14 +5366,23 @@ body::before {
         display: none !important;
     }
     
-    /* Disable text gradients on mobile */
+    /* Disable text gradients on mobile - Fix Sunand logo */
+    .nav-logo,
     .nav-logo h2 {
-        background: var(--text-primary) !important;
+        background: transparent !important;
+        background-image: none !important;
         background-clip: unset !important;
         -webkit-background-clip: unset !important;
         -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
         text-shadow: none !important;
         animation: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .nav-logo h2::after {
+        display: none !important;
     }
     
     /* Disable stat progress animations */
@@ -5530,10 +5539,12 @@ body::before {
     
     /* Fix text visibility issues - elements that start with opacity 0 need to be visible */
     .title-line,
-    .hero-description,
     .hero-title,
+    .hero-description,
+    .hero-content,
     .section-title,
     .section-subtitle,
+    .about-text,
     .about-text h3,
     .about-text p,
     .service-card h3,
@@ -5544,6 +5555,42 @@ body::before {
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
+    }
+    
+    /* Fix "Grow Your Brand with" - remove gradient background-clip */
+    .highlight {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        -webkit-text-stroke: none !important;
+        opacity: 1 !important;
+    }
+    
+    .highlight::after {
+        display: none !important;
+    }
+    
+    /* Fix section titles (About Me, My Work, Services, etc.) - remove gradient */
+    .section-title {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        -webkit-text-stroke: none !important;
+        opacity: 1 !important;
+    }
+    
+    .section-title::after {
+        display: none !important;
     }
     
     /* Ensure portfolio overlay text is visible on mobile (show always, not just on hover) */
@@ -5672,15 +5719,32 @@ body::before {
         text-overflow: clip !important;
     }
     
-    /* Fix timeline content visibility */
+    /* Fix timeline content visibility - Fix timeline years and descriptions */
+    .timeline-item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
     .timeline-content {
         opacity: 1 !important;
         visibility: visible !important;
     }
     
-    .timeline-content h4,
+    .timeline-content h4 {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
     .timeline-content p {
         opacity: 1 !important;
+        visibility: visible !important;
         color: var(--text-primary) !important;
     }
 }
@@ -5976,6 +6040,94 @@ body::before {
     /* Disable all filter effects */
     * {
         filter: none !important;
+    }
+    
+    /* Fix Sunand logo - remove gradient */
+    .nav-logo,
+    .nav-logo h2 {
+        background: transparent !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .nav-logo h2::after {
+        display: none !important;
+    }
+    
+    /* Fix "Grow Your Brand with" - remove gradient */
+    .highlight {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        -webkit-text-stroke: none !important;
+        opacity: 1 !important;
+    }
+    
+    .highlight::after {
+        display: none !important;
+    }
+    
+    /* Fix section titles (About Me, My Work, Services, etc.) - remove gradient */
+    .section-title {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        -webkit-text-stroke: none !important;
+        opacity: 1 !important;
+    }
+    
+    .section-title::after {
+        display: none !important;
+    }
+    
+    /* Fix timeline visibility - years and descriptions */
+    .timeline-item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    .timeline-content h4 {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .timeline-content p {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Ensure all text is visible */
+    .title-line,
+    .hero-title,
+    .hero-description {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
     
     .hero-container {
@@ -6345,8 +6497,10 @@ body::before {
     .title-line,
     .hero-description,
     .hero-title,
+    .hero-content,
     .section-title,
     .section-subtitle,
+    .about-text,
     .about-text h3,
     .about-text p,
     .service-card h3,
@@ -6362,6 +6516,7 @@ body::before {
     .stat-label,
     .stat-icon,
     .btn-text,
+    .timeline-item,
     .timeline-content h4,
     .timeline-content p,
     .footer-content p,
@@ -6372,10 +6527,79 @@ body::before {
         color: var(--text-primary) !important;
     }
     
-    /* Fix gradient text to show as solid color */
-    .highlight,
-    .nav-logo h2,
-    .section-title,
+    /* Fix Sunand logo - remove gradient */
+    .nav-logo,
+    .nav-logo h2 {
+        background: transparent !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .nav-logo h2::after {
+        display: none !important;
+    }
+    
+    /* Fix "Grow Your Brand with" - remove gradient */
+    .highlight {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        -webkit-text-stroke: none !important;
+        opacity: 1 !important;
+    }
+    
+    .highlight::after {
+        display: none !important;
+    }
+    
+    /* Fix section titles - remove gradient */
+    .section-title {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+        -webkit-text-stroke: none !important;
+        opacity: 1 !important;
+    }
+    
+    .section-title::after {
+        display: none !important;
+    }
+    
+    /* Fix timeline years and descriptions */
+    .timeline-item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    .timeline-content h4 {
+        background: var(--text-primary) !important;
+        background-image: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
     .portfolio-overlay h3 {
         background: var(--text-primary) !important;
         -webkit-background-clip: unset !important;

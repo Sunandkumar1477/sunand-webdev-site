@@ -5363,6 +5363,162 @@ body::before {
     .stat-progress {
         display: none !important;
     }
+    
+    /* Fix text visibility issues - elements that start with opacity 0 need to be visible */
+    .title-line,
+    .hero-description,
+    .hero-title,
+    .section-title,
+    .section-subtitle,
+    .about-text h3,
+    .about-text p,
+    .service-card h3,
+    .service-card p,
+    .testimonial-card p,
+    .contact-info h3,
+    .contact-info p {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    /* Ensure portfolio overlay text is visible on mobile (show always, not just on hover) */
+    .portfolio-overlay {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        background: rgba(11, 20, 38, 0.98) !important;
+    }
+    
+    .portfolio-overlay h3 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        animation: none !important;
+    }
+    
+    .portfolio-overlay p {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Fix text with gradient backgrounds - show as solid color on mobile */
+    .highlight,
+    .nav-logo h2,
+    .section-title,
+    .portfolio-overlay h3 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Ensure all text elements have proper color */
+    h1, h2, h3, h4, h5, h6,
+    p, span, a, li,
+    .btn, .nav-link,
+    .btn-text,
+    .service-features li,
+    .contact-method h4,
+    .contact-method p,
+    .footer-logo h3,
+    .footer-logo p,
+    .footer-links a,
+    .footer-social a {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Ensure button text is visible */
+    .btn,
+    .btn-text,
+    .btn-icon {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Ensure lists and list items are visible */
+    ul, ol, li {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .service-features li,
+    .contact-methods .contact-method {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Ensure contact form text is visible */
+    .contact-form,
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form label,
+    .form-group input,
+    .form-group textarea {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Ensure footer text is visible */
+    .footer,
+    .footer-bottom p,
+    .footer-logo h3,
+    .footer-logo p {
+        color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Make sure stat numbers and labels are visible */
+    .stat-number,
+    .stat-label,
+    .stat-icon {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Ensure text containers don't clip content on mobile */
+    .hero-content,
+    .about-text,
+    .about-content,
+    .container,
+    .section-header,
+    .service-card,
+    .testimonial-card,
+    .contact-info,
+    .contact-form,
+    .portfolio-item {
+        overflow: visible !important;
+    }
+    
+    /* Ensure all text is readable - no text clipping */
+    p, h1, h2, h3, h4, h5, h6,
+    .hero-description,
+    .about-text p,
+    .section-subtitle,
+    .service-card p,
+    .testimonial-card p {
+        overflow: visible !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        text-overflow: clip !important;
+    }
+    
+    /* Fix timeline content visibility */
+    .timeline-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .timeline-content h4,
+    .timeline-content p {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -5391,6 +5547,112 @@ body::before {
         transition: none !important;
         transition-duration: 0s !important;
         transition-delay: 0s !important;
+    }
+    
+    /* CRITICAL: Force visibility for all text content that might be hidden by animations */
+    .title-line,
+    .hero-description,
+    .hero-title,
+    .section-title,
+    .section-subtitle,
+    .about-text h3,
+    .about-text p,
+    .service-card h3,
+    .service-card p,
+    .testimonial-card p,
+    .contact-info h3,
+    .contact-info p,
+    .portfolio-overlay,
+    .portfolio-overlay h3,
+    .portfolio-overlay p,
+    .skill-item span,
+    .stat-number,
+    .stat-label,
+    .stat-icon,
+    .btn-text,
+    .timeline-content h4,
+    .timeline-content p {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    /* Fix gradient text to show as solid color on small mobile */
+    .highlight,
+    .nav-logo h2,
+    .section-title,
+    .portfolio-overlay h3 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+    }
+    
+    /* Ensure portfolio overlay is always visible on mobile */
+    .portfolio-overlay {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        background: rgba(11, 20, 38, 0.98) !important;
+    }
+    
+    /* Ensure text containers don't clip content on small mobile */
+    .hero-content,
+    .about-text,
+    .about-content,
+    .container,
+    .section-header,
+    .service-card,
+    .testimonial-card,
+    .contact-info,
+    .contact-form,
+    .portfolio-item {
+        overflow: visible !important;
+    }
+    
+    /* Ensure all text is readable - no text clipping */
+    p, h1, h2, h3, h4, h5, h6,
+    .hero-description,
+    .about-text p,
+    .section-subtitle,
+    .service-card p,
+    .testimonial-card p {
+        overflow: visible !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        text-overflow: clip !important;
+    }
+    
+    /* Fix timeline content visibility */
+    .timeline-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .timeline-content h4,
+    .timeline-content p {
+        opacity: 1 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Ensure all button and interactive text is visible */
+    .btn,
+    .btn-text,
+    .btn-icon,
+    .service-features li,
+    .contact-method h4,
+    .contact-method p,
+    .footer-logo h3,
+    .footer-logo p,
+    .footer-links a,
+    .footer-social a,
+    ul li,
+    ol li {
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: var(--text-primary) !important;
     }
     
     /* Only allow minimal transition for hamburger menu (essential UX) */
@@ -5803,6 +6065,87 @@ body::before {
     
     .btn:active {
         opacity: 0.8;
+    }
+    
+    /* CRITICAL: Ensure all text is visible on very small screens */
+    .title-line,
+    .hero-description,
+    .hero-title,
+    .section-title,
+    .section-subtitle,
+    .about-text h3,
+    .about-text p,
+    .service-card h3,
+    .service-card p,
+    .testimonial-card p,
+    .contact-info h3,
+    .contact-info p,
+    .portfolio-overlay,
+    .portfolio-overlay h3,
+    .portfolio-overlay p,
+    .skill-item span,
+    .stat-number,
+    .stat-label,
+    .stat-icon,
+    .btn-text,
+    .timeline-content h4,
+    .timeline-content p,
+    .footer-content p,
+    .footer-links a {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Fix gradient text to show as solid color */
+    .highlight,
+    .nav-logo h2,
+    .section-title,
+    .portfolio-overlay h3 {
+        background: var(--text-primary) !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Ensure portfolio overlay is always visible */
+    .portfolio-overlay {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        background: rgba(11, 20, 38, 0.98) !important;
+    }
+    
+    /* Ensure text containers don't clip content on very small mobile */
+    .hero-content,
+    .about-text,
+    .about-content,
+    .container,
+    .section-header,
+    .service-card,
+    .testimonial-card,
+    .contact-info,
+    .contact-form,
+    .portfolio-item,
+    .timeline-content {
+        overflow: visible !important;
+    }
+    
+    /* Ensure all text is readable - no text clipping */
+    p, h1, h2, h3, h4, h5, h6,
+    .hero-description,
+    .about-text p,
+    .section-subtitle,
+    .service-card p,
+    .testimonial-card p,
+    .timeline-content p {
+        overflow: visible !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        text-overflow: clip !important;
+        opacity: 1 !important;
     }
     
     /* Hide About Section Middle Line on Extra Small Mobile */
